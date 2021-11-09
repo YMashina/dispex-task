@@ -4,6 +4,7 @@ import {
   SET_APARTMENTS,
   SET_RESIDENTS,
   SET_ADDRESS,
+  RESET_RESIDENTS_DATA,
 } from "./actionTypes";
 
 export const setStreetsAction = (payload) => {
@@ -34,9 +35,16 @@ export const setResidentsAction = (payload) => {
   };
 };
 
-export const setAddress = (payload) => {
+export const setAddressAction = (payload) => {
   return {
     type: SET_ADDRESS,
+    payload,
+  };
+};
+
+export const resetResidentsAction = (payload) => {
+  return {
+    type: RESET_RESIDENTS_DATA,
     payload,
   };
 };

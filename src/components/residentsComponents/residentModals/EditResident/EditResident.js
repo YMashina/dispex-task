@@ -66,7 +66,7 @@ const EditResident = ({
             },
           ]}
         >
-          <Input placeholder={"Введите номер телефона"} />
+          <Input addonBefore="+7" placeholder={"Введите номер телефона"} />
         </Form.Item>
         <Form.Item label="E-mail" name={"editedEmail"}>
           <Input placeholder={"Введите email"} />

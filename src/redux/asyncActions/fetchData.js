@@ -4,6 +4,7 @@ import {
   setHousesAction,
   setApartmentsAction,
   setResidentsAction,
+  resetResidentsAction,
 } from "../actions/actions";
 import { API_URL } from "./constants";
 
@@ -18,6 +19,8 @@ export const fetchStreets = () => {
 export const fetchHouses = (id) => {
   return async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/Request/houses/${id}`);
+    dispatch(setApartmentsAction([]));
+    dispatch(resetResidentsAction());
     return dispatch(setHousesAction(data));
   };
 };
@@ -25,6 +28,8 @@ export const fetchHouses = (id) => {
 export const fetchApartments = (id) => {
   return async (dispatch) => {
     const { data } = await axios.get(`${API_URL}/Request/house_flats/${id}`);
+
+    dispatch(resetResidentsAction());
     return dispatch(setApartmentsAction(data));
   };
 };

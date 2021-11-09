@@ -32,7 +32,7 @@ const DeleteResident = ({
       <h4>{formattedAddress(address)}</h4>
 
       <div>ФИО: {name}</div>
-      <div>Телефон: {phone}</div>
+      <div>Телефон: +7{phone}</div>
       <br />
 
       <p>Отвязать этого жильца от текущего адреса?</p>

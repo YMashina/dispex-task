@@ -31,7 +31,19 @@ const Resident = ({ id, name, phone, email, bindId }) => {
 
   const phoneNumber = (
     <div className={styles.phoneNumber}>
-      <PhoneOutlined /> <span>{phone}</span>
+      <PhoneOutlined /> <span>+7{phone}</span>
+    </div>
+  );
+
+  const cardDescription = (
+    <div className={styles.cardDescription}>
+      {name ? phoneNumber : null}
+
+      {email ? (
+        <div className={styles.email}>
+          <MailOutlined /> <span>{email}</span>
+        </div>
+      ) : null}
     </div>
   );
 
@@ -49,16 +61,8 @@ const Resident = ({ id, name, phone, email, bindId }) => {
             <Avatar src="https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?w=512&ssl=1" />
           }
           title={name || phoneNumber}
+          description={cardDescription}
         />
-        <div className={styles.cardDescription}>
-          {name ? phoneNumber : null}
-
-          {email ? (
-            <div className={styles.email}>
-              <MailOutlined /> <span>{email}</span>
-            </div>
-          ) : null}
-        </div>
       </Card>
       <DeleteResident
         isModalVisible={showDeleteModal}

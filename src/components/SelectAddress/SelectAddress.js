@@ -9,12 +9,7 @@ import {
   fetchApartments,
   fetchResidents,
 } from "../../redux/asyncActions/fetchData";
-import {
-  setHousesAction,
-  setApartmentsAction,
-  setResidentsAction,
-  setAddress,
-} from "../../redux/actions/actions";
+import { setAddressAction } from "../../redux/actions/actions";
 
 const SelectAddress = () => {
   const dispatch = useDispatch();
@@ -46,31 +41,24 @@ const SelectAddress = () => {
 
   useEffect(() => {
     setHouse(null);
-    dispatch(setHousesAction([]));
     setApartment(null);
-    dispatch(setApartmentsAction([]));
-    dispatch(setResidentsAction([]));
-    dispatch(setAddress(null));
     if (street) {
       dispatch(fetchHouses(street.id));
     }
   }, [street]);
 
   useEffect(() => {
-    dispatch(setApartmentsAction([]));
     setApartment(null);
-    dispatch(setResidentsAction([]));
-    dispatch(setAddress(null));
     if (house) {
       dispatch(fetchApartments(house.id));
     }
   }, [house]);
 
   useEffect(() => {
-    dispatch(setAddress(null));
+    dispatch(setAddressAction(null));
     if (apartment) {
       dispatch(
-        setAddress({
+        setAddressAction({
           id: apartment.id,
           street: street.name,
           house: house.name,

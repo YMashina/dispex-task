@@ -1,4 +1,8 @@
-import { SET_ADDRESS, SET_RESIDENTS } from "../actions/actionTypes";
+import {
+  RESET_RESIDENTS_DATA,
+  SET_ADDRESS,
+  SET_RESIDENTS,
+} from "../actions/actionTypes";
 
 const defaultState = {
   address: null,
@@ -11,6 +15,8 @@ const residentsReducer = (state = defaultState, action) => {
       return { ...state, residents: action.payload };
     case SET_ADDRESS:
       return { ...state, address: action.payload };
+    case RESET_RESIDENTS_DATA:
+      return defaultState;
     default:
       return state;
   }

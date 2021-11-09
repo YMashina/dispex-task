@@ -51,7 +51,7 @@ const AddResident = ({ isModalVisible, closeModal }) => {
             },
           ]}
         >
-          <Input placeholder={"Введите номер телефона"} />
+          <Input addonBefore="+7" placeholder={"Введите номер телефона"} />
         </Form.Item>
         <Form.Item label="E-mail" name={"addResidentEmail"}>
           <Input placeholder={"Введите email"} />
