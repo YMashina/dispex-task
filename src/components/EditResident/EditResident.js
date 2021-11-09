@@ -8,7 +8,6 @@ import axios from "axios";
 const EditResident = ({
   isModalVisible,
   closeModal,
-  id,
   name,
   phone,
   email,

@@ -1,15 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Avatar, Button, Card, Col, Row } from "antd";
-import {
-  DeleteOutlined,
-  EditOutlined,
-  MailOutlined,
-  PhoneOutlined,
-  UserAddOutlined,
-} from "@ant-design/icons";
+import React, { useState } from "react";
+import { Button, Col, Row } from "antd";
+import { UserAddOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
 import styles from "./Residents.module.scss";
-import DeleteResident from "../DeleteResident/DeleteResident";
 import Resident from "../Resident/Resident";
 import AddResident from "../AddResident/AddResident";
 
@@ -22,10 +15,6 @@ const Residents = () => {
   const clickAddResident = () => {
     setShowAddResidentModal(true);
   };
-
-  useEffect(() => {
-    console.log();
-  }, []);
 
   return (
     <div className={styles.residentsContent}>

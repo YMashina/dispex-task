@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Card, Modal } from "antd";
 import axios from "axios";
 import { API_URL } from "../../redux/asyncActions/constants";
@@ -16,11 +16,11 @@ const DeleteResident = ({
   const dispatch = useDispatch();
   const address = useSelector((state) => state.residents.address);
 
-  const handleOk = async () => {
+  const handleOk = useCallback(async () => {
     await axios.delete(`${API_URL}/HousingStock/bind_client/${bindId}`);
     dispatch(fetchResidents(address.id));
     closeModal();
-  };
+  }, [address]);
 
   return (
     <Modal

@@ -1,12 +1,7 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SelectAddress.module.scss";
-import { Button, Select } from "antd";
-import {
-  filterSort,
-  filterOption,
-  API_URL,
-  formattedAddress,
-} from "../constants";
+import { Select } from "antd";
+import { filterSort, filterOption, formattedAddress } from "../constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchStreets,
@@ -20,7 +15,6 @@ import {
   setResidentsAction,
   setAddress,
 } from "../../redux/actions/actions";
-import { UserAddOutlined } from "@ant-design/icons";
 
 const SelectAddress = () => {
   const dispatch = useDispatch();

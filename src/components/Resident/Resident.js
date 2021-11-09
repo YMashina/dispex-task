@@ -70,7 +70,6 @@ const Resident = ({ id, name, phone, email, bindId }) => {
       <EditResident
         isModalVisible={showEditModal}
         closeModal={closeModal}
-        id={id}
         name={name}
         phone={phone}
         email={email}
