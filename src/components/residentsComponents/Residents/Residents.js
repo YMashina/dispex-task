@@ -24,21 +24,21 @@ const Residents = () => {
     <div className={styles.residentsContent}>
       <h3>Жильцы</h3>
 
+      <div className={styles.addResidentsButton}>
+        <Button
+          icon={<UserAddOutlined />}
+          type={"primary"}
+          size={"large"}
+          onClick={clickAddResident}
+        >
+          Добавить жильца
+        </Button>
+      </div>
+
       {isResidentsLoading ? (
         <Spin />
       ) : (
         <>
-          <div className={styles.addResidentsButton}>
-            <Button
-              icon={<UserAddOutlined />}
-              type={"primary"}
-              size={"large"}
-              onClick={clickAddResident}
-            >
-              Добавить жильца
-            </Button>
-          </div>
-
           {residents.length ? (
             <Row gutter={[16, 16]}>
               {residents.map((resident) => {
@@ -57,13 +57,12 @@ const Residents = () => {
           ) : (
             <div>Жильцы не найдены.</div>
           )}
-
-          <AddResident
-            isModalVisible={showAddResidentModal}
-            closeModal={closeModal}
-          />
         </>
       )}
+      <AddResident
+        isModalVisible={showAddResidentModal}
+        closeModal={closeModal}
+      />
     </div>
   );
 };
