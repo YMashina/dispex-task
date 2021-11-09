@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, Form, Input, Modal, Space } from "antd";
-import { API_URL } from "../../../../redux/asyncActions/constants";
 import { fetchResidents } from "../../../../redux/asyncActions/fetchData";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";

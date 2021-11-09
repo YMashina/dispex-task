@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import styles from "./Resident.module.scss";
 import {
   DeleteOutlined,
   EditOutlined,
   MailOutlined,
   PhoneOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 import { Avatar, Card } from "antd";
-import styles from "../Residents/Residents.module.scss";
 import DeleteResident from "../residentModals/DeleteResident/DeleteResident";
 import EditResident from "../residentModals/EditResident/EditResident";
 
@@ -36,7 +37,7 @@ const Resident = ({ id, name, phone, email, bindId }) => {
   );
 
   const cardDescription = (
-    <div className={styles.cardDescription}>
+    <div>
       {name ? phoneNumber : null}
 
       {email ? (
@@ -58,7 +59,12 @@ const Resident = ({ id, name, phone, email, bindId }) => {
       >
         <Card.Meta
           avatar={
-            <Avatar src="https://i2.wp.com/vdostavka.ru/wp-content/uploads/2019/05/no-avatar.png?w=512&ssl=1" />
+            <Avatar
+              style={{ background: "none" }}
+              icon={
+                <UserOutlined style={{ fontSize: "2rem", color: "#1890ff" }} />
+              }
+            />
           }
           title={name || phoneNumber}
           description={cardDescription}

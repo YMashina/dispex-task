@@ -1,7 +1,6 @@
 import React, { useCallback } from "react";
 import { Modal } from "antd";
 import axios from "axios";
-import { API_URL } from "../../../../redux/asyncActions/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchResidents } from "../../../../redux/asyncActions/fetchData";
 import { formattedAddress } from "../../../constants";

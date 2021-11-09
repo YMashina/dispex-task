@@ -1,0 +1,14 @@
+.addResidentTitle{
+  display: flex;
+  .addResidentTitleText{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.addResidentTitleIcon{
+  font-size: 3rem;
+  color: #1890ff !important;
+}

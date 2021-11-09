@@ -1,9 +1,11 @@
+import styles from "./AddResident.module.scss";
 import React, { useCallback } from "react";
 import { Button, Form, Input, Modal, Space } from "antd";
 import axios from "axios";
-import { API_URL } from "../../../../redux/asyncActions/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchResidents } from "../../../../redux/asyncActions/fetchData";
+import { UserAddOutlined } from "@ant-design/icons";
+import { formattedAddress } from "../../../constants";
 
 const AddResident = ({ isModalVisible, closeModal }) => {
   const dispatch = useDispatch();
@@ -30,14 +32,25 @@ const AddResident = ({ isModalVisible, closeModal }) => {
     console.log("Failed:", errorInfo);
   };
 
+  const addResidentTitle = (
+    <span className={styles.addResidentTitle}>
+      <UserAddOutlined className={styles.addResidentTitleIcon} />
+      <span className={styles.addResidentTitleText}>
+        <span>Добавление жильца</span>
+      </span>
+    </span>
+  );
+
   return (
     <Modal
-      title="Добавление жильца"
+      title={addResidentTitle}
       visible={isModalVisible}
       onCancel={closeModal}
       footer={null}
     >
       <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
+        <h4>{formattedAddress(address)}</h4>
+        <br />
         <Form.Item label="ФИО" name={"addResidentName"}>
           <Input placeholder={"Введите ФИО"} />
         </Form.Item>
