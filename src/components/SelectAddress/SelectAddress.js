@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import styles from "./SelectAddress.module.scss";
+import React, { useEffect, useState } from "react";
 import { Select } from "antd";
 import { filterSort, filterOption, formattedAddress } from "../constants";
 import { useDispatch, useSelector } from "react-redux";

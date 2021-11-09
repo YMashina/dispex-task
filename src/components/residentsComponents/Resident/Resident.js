@@ -7,8 +7,8 @@ import {
 } from "@ant-design/icons";
 import { Avatar, Card } from "antd";
 import styles from "../Residents/Residents.module.scss";
-import DeleteResident from "../DeleteResident/DeleteResident";
-import EditResident from "../EditResident/EditResident";
+import DeleteResident from "../residentModals/DeleteResident/DeleteResident";
+import EditResident from "../residentModals/EditResident/EditResident";
 
 const Resident = ({ id, name, phone, email, bindId }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);

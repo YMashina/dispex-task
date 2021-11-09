@@ -1,9 +1,9 @@
 import React, { useCallback } from "react";
 import { Button, Form, Input, Modal, Space } from "antd";
 import axios from "axios";
-import { API_URL } from "../../redux/asyncActions/constants";
+import { API_URL } from "../../../../redux/asyncActions/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchResidents } from "../../redux/asyncActions/fetchData";
+import { fetchResidents } from "../../../../redux/asyncActions/fetchData";
 
 const AddResident = ({ isModalVisible, closeModal }) => {
   const dispatch = useDispatch();

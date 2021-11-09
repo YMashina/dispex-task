@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
-import { Card, Modal } from "antd";
+import { Modal } from "antd";
 import axios from "axios";
-import { API_URL } from "../../redux/asyncActions/constants";
+import { API_URL } from "../../../../redux/asyncActions/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchResidents } from "../../redux/asyncActions/fetchData";
-import { formattedAddress } from "../constants";
+import { fetchResidents } from "../../../../redux/asyncActions/fetchData";
+import { formattedAddress } from "../../../constants";
 
 const DeleteResident = ({
   isModalVisible,

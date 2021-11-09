@@ -1,7 +1,7 @@
-import React from "react";
 import styles from "./App.module.scss";
+import React from "react";
 import SelectAddress from "../SelectAddress/SelectAddress";
-import Residents from "../Residents/Residents";
+import Residents from "../residentsComponents/Residents/Residents";
 import { useSelector } from "react-redux";
 
 const App = () => {

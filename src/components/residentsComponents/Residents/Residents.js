@@ -1,10 +1,10 @@
+import styles from "./Residents.module.scss";
 import React, { useState } from "react";
 import { Button, Col, Row } from "antd";
 import { UserAddOutlined } from "@ant-design/icons";
 import { useSelector } from "react-redux";
-import styles from "./Residents.module.scss";
 import Resident from "../Resident/Resident";
-import AddResident from "../AddResident/AddResident";
+import AddResident from "../residentModals/AddResident/AddResident";
 
 const Residents = () => {
   const residents = useSelector((state) => state.residents.residents);
