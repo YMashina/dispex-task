@@ -17,17 +17,17 @@ const EditResident = ({
   const address = useSelector((state) => state.residents.address);
 
   const onFinish = async (values) => {
-    const postResponse = await axios.post(`${API_URL}/HousingStock/client`, {
+    const postResponse = await axios.post(`HousingStock/client`, {
       Name: values.editedName,
       Phone: values.editedPhone,
       Email: values.editedEmail,
     });
     if (values.editedPhone !== phone) {
-      await axios.put(`${API_URL}/HousingStock/bind_client`, {
+      await axios.put(`HousingStock/bind_client`, {
         ClientId: postResponse.data.id,
         AddressId: address.id,
       });
-      await axios.delete(`${API_URL}/HousingStock/bind_client/${bindId}`);
+      await axios.delete(`HousingStock/bind_client/${bindId}`);
     }
     dispatch(fetchResidents(address.id));
     closeModal();

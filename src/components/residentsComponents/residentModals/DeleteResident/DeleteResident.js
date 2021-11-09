@@ -17,7 +17,7 @@ const DeleteResident = ({
   const address = useSelector((state) => state.residents.address);
 
   const handleOk = useCallback(async () => {
-    await axios.delete(`${API_URL}/HousingStock/bind_client/${bindId}`);
+    await axios.delete(`HousingStock/bind_client/${bindId}`);
     dispatch(fetchResidents(address.id));
     closeModal();
   }, [address]);

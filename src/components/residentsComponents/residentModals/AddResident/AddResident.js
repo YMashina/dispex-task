@@ -11,12 +11,12 @@ const AddResident = ({ isModalVisible, closeModal }) => {
 
   const onFinish = useCallback(
     async (values) => {
-      const postResponse = await axios.post(`${API_URL}/HousingStock/client`, {
+      const postResponse = await axios.post(`HousingStock/client`, {
         Name: values.addResidentName,
         Phone: values.addResidentPhone,
         Email: values.addResidentEmail,
       });
-      await axios.put(`${API_URL}/HousingStock/bind_client`, {
+      await axios.put(`HousingStock/bind_client`, {
         ClientId: postResponse.data.id,
         AddressId: address.id,
       });
