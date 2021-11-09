@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className={styles.appContent}>
       <SelectAddress />
-      {address ? <Residents /> : null}
+      {address && <Residents />}
     </div>
   );
 };
