@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import styles from "./Resident.module.scss";
 import {
   DeleteOutlined,
@@ -15,10 +15,10 @@ const Resident = ({ id, name, phone, email, bindId }) => {
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setShowDeleteModal(false);
     setShowEditModal(false);
-  };
+  }, []);
 
   const clickDelete = (e) => {
     e.stopPropagation();
@@ -53,8 +53,8 @@ const Resident = ({ id, name, phone, email, bindId }) => {
       <Card
         style={{ width: 300 }}
         actions={[
-          <DeleteOutlined onClick={(e) => clickDelete(e, id)} />,
-          <EditOutlined onClick={(e) => clickEdit(e, id)} />,
+          <DeleteOutlined onClick={clickDelete} />,
+          <EditOutlined onClick={clickEdit} />,
         ]}
       >
         <Card.Meta

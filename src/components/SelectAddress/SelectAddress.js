@@ -1,6 +1,6 @@
 import styles from "./SelectAddress.module.scss";
 import React, { useEffect, useState } from "react";
-import { Select, Input } from "antd";
+import { Select, Input, Spin } from "antd";
 import { filterSort, filterOption, formattedAddress } from "../constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -22,6 +22,16 @@ const SelectAddress = () => {
   const houseOptions = useSelector((state) => state.selectOptions.houseOptions);
   const apartmentOptions = useSelector(
     (state) => state.selectOptions.apartmentOptions
+  );
+
+  const isStreetsOptionsLoading = useSelector(
+    (state) => state.selectOptions.isStreetsOptionsLoading
+  );
+  const isHousesOptionsLoading = useSelector(
+    (state) => state.selectOptions.isHousesOptionsLoading
+  );
+  const isApartmentsOptionsLoading = useSelector(
+    (state) => state.selectOptions.isApartmentsOptionsLoading
   );
 
   const [street, setStreet] = useState(null);
@@ -47,7 +57,6 @@ const SelectAddress = () => {
     const id = value.value;
     const name = value.label;
     setApartment({ id, name });
-    dispatch(setAddressAction(null));
     dispatch(
       setAddressAction({
         id,
@@ -59,9 +68,9 @@ const SelectAddress = () => {
     dispatch(fetchResidents(id));
   };
 
-  useEffect(() => {
+  const getStreets = () => {
     dispatch(fetchStreets());
-  }, []);
+  };
 
   return (
     <div>
@@ -71,6 +80,10 @@ const SelectAddress = () => {
           <Select
             labelInValue
             showSearch
+            notFoundContent={
+              isStreetsOptionsLoading ? <Spin size="small" /> : null
+            }
+            onFocus={getStreets}
             value={street && { value: street.id, label: street.name }}
             onChange={handleStreetChange}
             style={{ width: 250 }}
@@ -88,6 +101,9 @@ const SelectAddress = () => {
           <Select
             labelInValue
             showSearch
+            notFoundContent={
+              isHousesOptionsLoading ? <Spin size="small" /> : null
+            }
             value={house && { value: house.id, label: house.name }}
             onChange={handleHouseChange}
             style={{ width: 200 }}
@@ -102,6 +118,9 @@ const SelectAddress = () => {
           <Select
             labelInValue
             showSearch
+            notFoundContent={
+              isApartmentsOptionsLoading ? <Spin size="small" /> : null
+            }
             value={apartment && { value: apartment.id, label: apartment.name }}
             onChange={handleApartmentChange}
             style={{ width: 200 }}
