@@ -1,7 +1,12 @@
 import styles from "./SelectAddress.module.scss";
 import React, { useEffect, useState } from "react";
 import { Select, Input, Spin } from "antd";
-import { filterSort, filterOption, formattedAddress } from "../constants";
+import {
+  filterSort,
+  filterOption,
+  formattedAddress,
+  filterSortNumbers,
+} from "../constants";
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchStreets,
@@ -127,7 +132,7 @@ const SelectAddress = () => {
             placeholder="Кв./Офис"
             optionFilterProp="children"
             filterOption={filterOption}
-            filterSort={filterSort}
+            filterSort={filterSortNumbers}
             options={apartmentOptions.map((aptOption) => {
               return { value: aptOption.id, label: aptOption.name };
             })}
